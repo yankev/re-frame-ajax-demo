@@ -1,6 +1,7 @@
-# rf-api
+# Re-frame Github API Example
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+Just a simple app that grabs the avatar of a github user.
+Built on top of `re-frame`, and the get requests are made with `cljs-ajax`.
 
 ## Development Mode
 
