@@ -27,10 +27,12 @@
  (fn [db [_ response]]
   ;  (-> db
   ;    (assoc :profile (js->clj response)))))
-    (js/alert response)
-    (-> db
-      (assoc :name "success"))))
-
+    (let [js-resp (js->clj response)
+          avatar-url (get js-resp "avatar_url")]
+      (js/alert avatar-url)
+      (-> db
+        (assoc :status "success")
+        (assoc :avatar-url avatar-url)))))
 (re-frame/reg-event-db
  :bad-response
  (fn [db [_ response]]
@@ -38,4 +40,5 @@
   ;    (assoc :name (js->clj response)))))
     (js/alert "Got nothing for this user")
     (-> db
-      (assoc :name "error!"))))
+      (assoc :status "error!")
+      (assoc :avatar-url ""))))

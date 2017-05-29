@@ -2,6 +2,6 @@
 
 (def default-db
   {
-    :name ""
+    :status ""
     :user-name-input ""
-    :profile ""})
+    :avatar-url ""})

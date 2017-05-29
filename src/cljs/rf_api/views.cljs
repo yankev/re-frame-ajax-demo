@@ -6,9 +6,11 @@
     [:input {:type "text" :value @user-name :on-change #(re-frame/dispatch [:user-input-change (-> % .-target .-value)])}]
     [:input {:type "button" :value "Search" :on-click #(re-frame/dispatch [:search @user-name])}]])
 (defn main-panel []
-  (let [name (re-frame/subscribe [:name])
-        user-name (re-frame/subscribe [:user-name-input])]
+  (let [status (re-frame/subscribe [:status])
+        user-name (re-frame/subscribe [:user-name-input])
+        avatar-url (re-frame/subscribe [:avatar-url])]
     (fn []
-      [:div "Status: " @name
+      [:div "Status: " @status
         [:div [get-user-name user-name]]
-        [:div "Current user name is " @user-name]])))
+        [:div "Current user name is " @user-name]
+        (if (empty? @avatar-url) nil [:img {:src @avatar-url :height "200px"}])])))

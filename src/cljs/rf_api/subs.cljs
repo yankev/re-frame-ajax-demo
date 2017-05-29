@@ -3,10 +3,14 @@
     (:require [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub
- :name
+ :status
  (fn [db]
-   (:name db)))
+   (:status db)))
 
+(re-frame/reg-sub
+ :avatar-url
+ (fn [db]
+   (:avatar-url db)))
 
 (re-frame/reg-sub
  :user-name-input
