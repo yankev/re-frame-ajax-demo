@@ -9,6 +9,6 @@
 
 
 (re-frame/reg-sub
- :artist-name-input
+ :user-name-input
  (fn [db]
-   (:artist-name-input db)))
+   (:user-name-input db)))

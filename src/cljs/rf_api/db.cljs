@@ -3,5 +3,5 @@
 (def default-db
   {
     :name "re-frame"
-    :artist-name-input ""
+    :user-name-input ""
     :profile ""})
