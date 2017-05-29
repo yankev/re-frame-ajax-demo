@@ -9,6 +9,6 @@
   (let [name (re-frame/subscribe [:name])
         user-name (re-frame/subscribe [:user-name-input])]
     (fn []
-      [:div "Hello from " @name
+      [:div "Status: " @name
         [:div [get-user-name user-name]]
         [:div "Current user name is " @user-name]])))

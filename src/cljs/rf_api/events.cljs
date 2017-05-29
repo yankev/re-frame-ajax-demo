@@ -8,9 +8,9 @@
    db/default-db))
 
 (re-frame/reg-event-db
-  :artist-input-change
+  :user-input-change
   (fn [db [action text]]
-    (assoc db :artist-name-input text)))
+    (assoc db :user-name-input text)))
 
 (re-frame/reg-event-db
   :search
@@ -28,11 +28,14 @@
   ;  (-> db
   ;    (assoc :profile (js->clj response)))))
     (js/alert response)
-    db))
+    (-> db
+      (assoc :name "success"))))
+
 (re-frame/reg-event-db
  :bad-response
  (fn [db [_ response]]
   ;  (-> db
   ;    (assoc :name (js->clj response)))))
     (js/alert "Got nothing for this user")
-    db))
+    (-> db
+      (assoc :name "error!"))))

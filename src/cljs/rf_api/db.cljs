@@ -2,6 +2,6 @@
 
 (def default-db
   {
-    :name "re-frame"
+    :name ""
     :user-name-input ""
     :profile ""})
